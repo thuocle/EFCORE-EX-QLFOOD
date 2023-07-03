@@ -102,25 +102,13 @@ namespace EF_EX_QLFOOD.Services
 
         public void TimKiemMonAnTheoNguyenLieu()
         {
-
-            var query = from MonAn in dbContext.MonAn
-                        join CongThuc in dbContext.CongThuc
-                            on MonAn.MonAnID equals CongThuc.MonAnID
-                        join NguyenLieu in dbContext.NguyenLieu
-                            on CongThuc.NguyenLieuID equals NguyenLieu.NguyenLieuID
-                        where NguyenLieu.TenNguyenLieu.Contains("Hanh") || NguyenLieu.TenNguyenLieu.Contains("Toi")
-                        group new { MonAn } by new { MonAn.MonAnID, MonAn.TenMonAn } into g
-                        select new
-                        {
-                            IDMon = g.Key.MonAnID
-                        };
-
             var query2 = from MonAn in dbContext.MonAn
                         join CongThuc in dbContext.CongThuc
                             on MonAn.MonAnID equals CongThuc.MonAnID
                         join NguyenLieu in dbContext.NguyenLieu
                             on CongThuc.NguyenLieuID equals NguyenLieu.NguyenLieuID
-                        group new { MonAn, CongThuc, NguyenLieu } by new { MonAn.MonAnID, MonAn.TenMonAn } into g
+                        where CongThuc.NguyenLieu.TenNguyenLieu.Contains("Hanh")
+                         group new { MonAn, CongThuc, NguyenLieu } by new { MonAn.MonAnID, MonAn.TenMonAn} into g
                         select new
                         {
                             TenMon = g.Key.TenMonAn,
