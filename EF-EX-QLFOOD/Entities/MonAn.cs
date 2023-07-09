@@ -14,6 +14,7 @@ namespace EF_EX_QLFOOD.Entities
         public string TenMonAn { get; set; }
         public string GhiChu { get; set; }
         public int LoaiMonAnID { get; set; }
+        public string CachLam { get;set; }
 
         public LoaiMonAn LoaiMonAn { get; set; }
         public IEnumerable<CongThuc> CongThuc { get; set; }
