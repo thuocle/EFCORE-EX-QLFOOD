@@ -12,5 +12,7 @@ namespace EF_EX_QLFOOD.IServices
         void HienThiCongThucMonAn();
         void TimKiemMonAnTheoNguyenLieu();
         void ThemMonKemCongThuc(MonAn mon);
+        void ThemMon(MonAn mon);
+        void ThemCongThuc(int monID);
     }
 }

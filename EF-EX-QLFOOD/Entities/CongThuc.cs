@@ -36,9 +36,5 @@ namespace EF_EX_QLFOOD.Entities
         {
             
         }
-        public void HienThi() 
-        {
-            
-        }
     }
 }
